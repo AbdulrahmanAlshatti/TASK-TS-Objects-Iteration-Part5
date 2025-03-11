@@ -60,8 +60,12 @@ interface FruitByTaste {
  */
 function fruitByTaste(fruits: Fruit[]): FruitByTaste {
   // Write your code here...
-
-  return {}; // replace empty object with what you see is fit
+  let fruitByTaste: FruitByTaste = {};
+  fruits.forEach(fruit=>{
+    if(!(fruit.taste in fruitByTaste)) fruitByTaste[fruit.taste] = []
+    fruitByTaste[fruit.taste].push(fruit.name)
+  })
+  return fruitByTaste;
 }
 
 export { fruitByTaste, FruitByTaste };
